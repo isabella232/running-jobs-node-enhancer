@@ -1,0 +1,47 @@
+package cl.variacode;
+
+import com.dtolabs.rundeck.core.common.INodeEntry;
+
+import java.util.Collection;
+import java.util.Map;
+import java.util.Optional;
+import java.util.Set;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.CopyOnWriteArraySet;
+
+public class RunningJobsOnNodeRepository {
+
+    private static RunningJobsOnNodeRepository single_instance = null;
+
+    private Map<String, Set<String>> map;
+
+    public RunningJobsOnNodeRepository() {
+        map = new ConcurrentHashMap<>();
+    }
+
+    private String toKey(INodeEntry node) {
+        return node.getFrameworkProject() + "-" + node.getNodename();
+    }
+
+    public synchronized void addJob(Collection<INodeEntry> nodes, String jobId) {
+        for (INodeEntry node : nodes) {
+            map.computeIfAbsent(toKey(node), (k) -> new CopyOnWriteArraySet<>()).add(jobId);
+        }
+    }
+
+    public synchronized void removeJob(Collection<INodeEntry> nodes, String jobId) {
+        for (INodeEntry node : nodes) {
+            map.computeIfAbsent(toKey(node), (k) -> new CopyOnWriteArraySet<>()).remove(jobId);
+        }
+    }
+
+    public long jobCount(INodeEntry node) {
+        return Optional.ofNullable(map.get(toKey(node))).map(Set::size).orElse(0);
+    }
+
+    public static RunningJobsOnNodeRepository getInstance() {
+        if (single_instance == null)
+            single_instance = new RunningJobsOnNodeRepository();
+        return single_instance;
+    }
+}
