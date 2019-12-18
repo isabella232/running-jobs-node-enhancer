@@ -28,13 +28,11 @@ public class RunningJobsOnNodeRepositoryTest {
         MatcherAssert.assertThat(
                 t -> {
                     int i = t.getAndIncrement();
-                    Long obj = Long.valueOf(i);
                     repository.addJob(nodes, i + "");
                     Thread.sleep(i * 100);
                     repository.removeJob(nodes, i + "");
-                    Long aLong = repository.jobCount(node1);
-                    System.out.println(aLong + "," + obj + "," + i);
-                    return aLong.equals(10 - obj - 1);
+                    Integer runningJobs = repository.jobCount(node1);
+                    return runningJobs.equals(10 - i - 1);
                 },
                 new RunsInThreads<>(new AtomicInteger(), 10)
         );

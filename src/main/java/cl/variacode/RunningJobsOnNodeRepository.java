@@ -35,7 +35,7 @@ public class RunningJobsOnNodeRepository {
         }
     }
 
-    public long jobCount(INodeEntry node) {
+    public int jobCount(INodeEntry node) {
         return Optional.ofNullable(map.get(toKey(node))).map(Set::size).orElse(0);
     }
 
