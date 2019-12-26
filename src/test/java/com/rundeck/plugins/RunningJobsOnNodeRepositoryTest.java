@@ -1,4 +1,4 @@
-package cl.variacode;
+package com.rundeck.plugins;
 
 import com.dtolabs.rundeck.core.common.INodeEntry;
 import com.dtolabs.rundeck.core.common.NodeEntryImpl;
@@ -12,7 +12,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 public class RunningJobsOnNodeRepositoryTest {
     @Test
-    public void addJobAndJobCount() {
+    public void addAndRemoveJobCount() {
         RunningJobsOnNodeRepository repository = new RunningJobsOnNodeRepository();
         NodeEntryImpl node1 = new NodeEntryImpl();
         node1.setFrameworkProject("1");

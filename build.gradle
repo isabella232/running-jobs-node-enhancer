@@ -16,7 +16,7 @@ dependencies {
     testCompile group: 'junit', name: 'junit', version:'4.12'
 }
 
-ext.pluginClassNames='cl.variacode.RunningJobsOnNodeExecutionLifecyclePlugin,cl.variacode.RunningJobsOnNodeEnhancerPlugin'
+ext.pluginClassNames='com.rundeck.plugins.RunningJobsOnNodeExecutionLifecyclePlugin,com.rundeck.plugins.RunningJobsOnNodeEnhancerPlugin'
 jar {
     manifest {
         attributes 'Rundeck-Plugin-Rundeck-Compatibility-Version': '3.x'
@@ -26,7 +26,7 @@ jar {
         attributes 'Rundeck-Plugin-Version': rundeckPluginVersion
         attributes 'Rundeck-Plugin-Archive': 'true'
         attributes 'Rundeck-Plugin-Target-Host-Compatibility': 'all'
-        attributes 'Rundeck-Plugin-Description': 'Adds an attribute ("running-job") to nodes representing the number of running jobs.'
+        attributes 'Rundeck-Plugin-Description': 'Adds an attribute ("running-jobs") to nodes representing the number of running jobs.'
     }
 }
 

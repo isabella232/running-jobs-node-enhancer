@@ -1,4 +1,4 @@
-package cl.variacode;
+package com.rundeck.plugins;
 
 import com.dtolabs.rundeck.core.common.INodeEntry;
 
