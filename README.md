@@ -10,8 +10,8 @@ See the [Included Plugins | Rundeck Documentation](http://rundeck.org/docs/plugi
 2. Copy jarfile to `$RDECK_BASE/libext`
 
 ## Configuration
-- Enable the `cl.variacode.RunningJobsOnNodeEnhancerPlugin` Node Enhancer Plugin under the `Edit Nodes` configuration screen. 
-- Enable the `cl.variacode.RunningJobsOnNodeExecutionLifecyclePlugin` Execution Plugin on every job configuration.
+- Enable the `RunningJobsOnNodeEnhancerPlugin` Node Enhancer Plugin under the `Edit Nodes` configuration screen. 
+- Enable the `RunningJobsOnNodeExecutionLifecyclePlugin` Execution Plugin on every job configuration.
 
 ## Usage
 Check the nodes list for the `running-jobs` attribute.
