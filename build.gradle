@@ -1,8 +1,28 @@
+plugins{
+    //defines scmVersion from git tags
+    id 'pl.allegro.tech.build.axion-release' version '1.9.3'
+    id 'maven'
+}
+
 defaultTasks 'clean','build'
 apply plugin: 'java'
 apply plugin: 'idea'
 sourceCompatibility = 1.8
+
 ext.rundeckPluginVersion= '1.2'
+ext.pluginClassNames='com.rundeck.plugins.RunningJobsOnNodeExecutionLifecyclePlugin,com.rundeck.plugins.RunningJobsOnNodeEnhancerPlugin'
+
+scmVersion {
+    tag {
+        //defines release tags like "v1.2.3"
+        prefix = 'v'
+        versionSeparator = ''
+    }
+    ignoreUncommittedChanges = true
+}
+
+version = scmVersion.version
+project.version = scmVersion.version
 
 repositories {
     mavenLocal()
@@ -16,11 +36,11 @@ dependencies {
     testCompile group: 'junit', name: 'junit', version:'4.12'
 }
 
-ext.pluginClassNames='com.rundeck.plugins.RunningJobsOnNodeExecutionLifecyclePlugin,com.rundeck.plugins.RunningJobsOnNodeEnhancerPlugin'
+
 jar {
     manifest {
         attributes 'Rundeck-Plugin-Rundeck-Compatibility-Version': '3.x'
-        attributes 'Rundeck-Plugin-Name': 'Running Jobs On Node'
+        attributes 'Rundeck-Plugin-Name': 'Running Jobs Node Enhancer'
         attributes 'Rundeck-Plugin-Classnames': pluginClassNames
         attributes 'Rundeck-Plugin-File-Version': '1.0'
         attributes 'Rundeck-Plugin-Version': rundeckPluginVersion

@@ -9,7 +9,7 @@ import com.dtolabs.rundeck.plugins.descriptions.PluginDescription;
 import com.dtolabs.rundeck.plugins.jobs.ExecutionLifecyclePlugin;
 
 @PluginDescription(
-        title = "Running Jobs on Node Lifecycle",
+        title = "Running Jobs on Node Lifecycle Plugin",
         description = "Updates 'running-jobs' attribute in nodes"
 )
 @Plugin(name = "RunningJobsOnNodeExecutionLifecyclePlugin", service = ServiceNameConstants.ExecutionLifecycle)
