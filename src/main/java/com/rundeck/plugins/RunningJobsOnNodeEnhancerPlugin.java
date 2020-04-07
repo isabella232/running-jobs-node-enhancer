@@ -7,8 +7,8 @@ import com.dtolabs.rundeck.plugins.nodes.IModifiableNodeEntry;
 import com.dtolabs.rundeck.plugins.nodes.NodeEnhancerPlugin;
 
 @PluginDescription(
-        title = "Running Jobs on Node Enhancer",
-        description = "Updates 'running-jobs' attribute in nodes"
+        title = "Add count of running jobs",
+        description = "Adds a 'running-jobs' attribute in each node, with the count statistic kept by the 'Keep count of running jobs on each node' execution plugin."
 )
 @Plugin(name = "RunningJobsOnNodeEnhancerPlugin", service = ServiceNameConstants.NodeEnhancer)
 public class RunningJobsOnNodeEnhancerPlugin implements NodeEnhancerPlugin {

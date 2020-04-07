@@ -11,7 +11,7 @@ import java.util.concurrent.CopyOnWriteArraySet;
 
 public class RunningJobsOnNodeRepository {
 
-    private static RunningJobsOnNodeRepository single_instance = null;
+    private static final RunningJobsOnNodeRepository single_instance = new RunningJobsOnNodeRepository();
 
     private Map<String, Set<String>> map;
 
@@ -40,8 +40,6 @@ public class RunningJobsOnNodeRepository {
     }
 
     public static RunningJobsOnNodeRepository getInstance() {
-        if (single_instance == null)
-            single_instance = new RunningJobsOnNodeRepository();
         return single_instance;
     }
 }

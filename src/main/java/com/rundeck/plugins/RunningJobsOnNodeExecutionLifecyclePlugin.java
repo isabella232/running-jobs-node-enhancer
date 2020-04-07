@@ -9,8 +9,8 @@ import com.dtolabs.rundeck.plugins.descriptions.PluginDescription;
 import com.dtolabs.rundeck.plugins.jobs.ExecutionLifecyclePlugin;
 
 @PluginDescription(
-        title = "Running Jobs on Node Lifecycle Plugin",
-        description = "Updates 'running-jobs' attribute in nodes"
+        title = "Keep count of running jobs on each node",
+        description = "Keep track of currently running jobs on each node. Use the 'Add count of running jobs' node enhancer to add this stat to each node attributes"
 )
 @Plugin(name = "RunningJobsOnNodeExecutionLifecyclePlugin", service = ServiceNameConstants.ExecutionLifecycle)
 public class RunningJobsOnNodeExecutionLifecyclePlugin implements ExecutionLifecyclePlugin {
