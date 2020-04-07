@@ -1,6 +1,5 @@
 plugins{
     //defines scmVersion from git tags
-    id 'pl.allegro.tech.build.axion-release' version '1.11.0'
     id 'maven'
 }
 
@@ -12,17 +11,8 @@ sourceCompatibility = 1.8
 ext.rundeckPluginVersion= '1.2'
 ext.pluginClassNames='com.rundeck.plugins.RunningJobsOnNodeExecutionLifecyclePlugin,com.rundeck.plugins.RunningJobsOnNodeEnhancerPlugin'
 
-scmVersion {
-    tag {
-        //defines release tags like "v1.2.3"
-        prefix = 'v'
-        versionSeparator = ''
-    }
-    ignoreUncommittedChanges = true
-}
-
-version = scmVersion.version
-project.version = scmVersion.version
+version = '1.0.0'
+project.version = version
 
 repositories {
     mavenLocal()
